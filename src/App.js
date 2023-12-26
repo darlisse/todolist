@@ -1,3 +1,4 @@
+import "./App.css";
 import React, { useState } from "react";
 
 function App() {
@@ -34,10 +35,10 @@ function App() {
       <h1>To Do List</h1>
       <input
         type="text"
-        className="text"
-        value={inputText} // Using inputText, not todo
+        className="textAdd"
+        value={inputText}
         onChange={(e) => setInputText(e.target.value)}
-        placeholder="What are you into right now?"
+        placeholder="Capture your goals for the day."
       />
       <button onClick={handleAddTodo} className="Button">
         Add
@@ -60,10 +61,12 @@ function App() {
             ) : (
               <span>{todo.completed ? <strike>{todo}</strike> : todo}</span>
             )}
-            {/* Removed duplicate todo rendering
-            <button onClick={() => handleToggleComplete(index)}>
+            <button
+              onClick={() => handleToggleComplete(index)}
+              className="done"
+            >
               {todo.completed ? "Undo" : "Complete"}
-            </button> */}
+            </button>
             <button onClick={() => handleDeleteTodo(index)} className="Button">
               Delete
             </button>
