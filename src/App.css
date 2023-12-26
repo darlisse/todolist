@@ -25,6 +25,15 @@ body {
   font-family: "DM Serif Display", serif;
 }
 
+.ToDoList {
+  margin-bottom: 5px;
+  list-style-type: none;
+}
+
+.ToDoList li {
+  margin-bottom: 5px;
+}
+
 .textAdd {
   background-color: rgba(251, 246, 238, 0.7);
   width: 20rem;

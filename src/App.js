@@ -13,13 +13,15 @@ function App() {
   };
 
   // Function to toggle a todo's completion state
-  const handleToggleComplete = (index) => {
+  {
+    /*const handleToggleComplete = (index) => {
     setTodos(
       todos.map((todo, i) =>
         i === index ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  };
+  };*/
+  }
 
   const handleEditTodo = (index) => {
     setEditingIndex(index);
@@ -61,12 +63,12 @@ function App() {
             ) : (
               <span>{todo.completed ? <strike>{todo}</strike> : todo}</span>
             )}
-            <button
+            {/*<button
               onClick={() => handleToggleComplete(index)}
               className="done"
             >
               {todo.completed ? "Undo" : "Complete"}
-            </button>
+            </button>*/}
             <button onClick={() => handleDeleteTodo(index)} className="Button">
               Delete
             </button>
