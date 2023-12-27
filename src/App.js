@@ -45,7 +45,7 @@ function App() {
         placeholder="Capture your goals for the day."
       />
       <button onClick={handleAddTodo} className="Button">
-        Add
+        Create
       </button>
       <ul className="list-container">
         {todos.map((item, index) => (
