@@ -2,32 +2,34 @@ import "./App.css";
 import React, { useState } from "react";
 
 function App() {
-  const [todos, setTodos] = useState([]);
   const [inputText, setInputText] = useState("");
-  const [editingIndex, setEditingIndex] = useState(null); // Fixed case sensitivity
+  const [todos, setTodos] = useState([]);
+  const [checked, setChecked] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
 
-  // Function to add a new todo
   const handleAddTodo = () => {
     setTodos([...todos, inputText]);
     setInputText("");
   };
 
-  // Function to toggle a todo's completion state
-  {
-    /*const handleToggleComplete = (index) => {
-    setTodos(
-      todos.map((todo, i) =>
-        i === index ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };*/
-  }
+  const handleCheck = (index) => {
+    const updatedList = [...checked];
+    const isChecked = updatedList.includes(index);
+    if (isChecked) {
+      updatedList.splice(updatedList.indexOf(index), 1);
+    } else {
+      updatedList.push(index);
+    }
+    setChecked(updatedList);
+  };
+
+  var isChecked = (item) =>
+    checked.includes(item) ? "checked-item" : "not-checked-item";
 
   const handleEditTodo = (index) => {
     setEditingIndex(index);
   };
 
-  // Function to delete a todo
   const handleDeleteTodo = (index) => {
     setTodos(todos.filter((todo, i) => i !== index));
   };
@@ -45,14 +47,14 @@ function App() {
       <button onClick={handleAddTodo} className="Button">
         Add
       </button>
-      <ul className="ToDoList">
-        {todos.map((todo, index) => (
+      <ul className="list-container">
+        {todos.map((item, index) => (
           <li key={index}>
             {editingIndex === index ? (
               <input
                 type="text"
                 className="updateText"
-                value={todo}
+                value={item}
                 onChange={(e) =>
                   setTodos(
                     todos.map((t, i) => (i === index ? e.target.value : t))
@@ -61,19 +63,20 @@ function App() {
                 onBlur={() => setEditingIndex(null)}
               />
             ) : (
-              <span>{todo.completed ? <strike>{todo}</strike> : todo}</span>
+              <>
+                <input
+                  type="checkbox"
+                  checked={checked.includes(index)}
+                  onChange={() => handleCheck(index)}
+                />
+                <span className={isChecked(index)}>{item}</span>
+              </>
             )}
-            {/*<button
-              onClick={() => handleToggleComplete(index)}
-              className="done"
-            >
-              {todo.completed ? "Undo" : "Complete"}
-            </button>*/}
-            <button onClick={() => handleDeleteTodo(index)} className="Button">
-              Delete
-            </button>
             <button onClick={() => handleEditTodo(index)} className="Button">
               Update
+            </button>
+            <button onClick={() => handleDeleteTodo(index)} className="Button">
+              Delete
             </button>
           </li>
         ))}

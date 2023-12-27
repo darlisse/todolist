@@ -21,33 +21,25 @@ body {
   margin: 2px;
 }
 
-.ToDo h1 {
-  font-family: "DM Serif Display", serif;
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 20px;
+}
+.checked-item,
+.not-checked-item {
+  margin-left: 10px;
+}
+.checked-item {
+  text-decoration: line-through;
 }
 
-.ToDoList {
+.list-container {
   margin-bottom: 5px;
   list-style-type: none;
 }
 
-.ToDoList li {
+.list-container li {
   margin-bottom: 5px;
-}
-
-.textAdd {
-  background-color: rgba(251, 246, 238, 0.7);
-  width: 20rem;
-  height: 20px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.textAdd:focus {
-  border: 4px solid #750e21;
-  border-radius: 4px;
-  height: 25px;
-}
-
-.updateText:focus {
-  background-color: lightgrey;
 }
