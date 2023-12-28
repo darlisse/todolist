@@ -66,16 +66,20 @@ function App() {
               <>
                 <input
                   type="checkbox"
+                  className="list"
                   checked={checked.includes(index)}
                   onChange={() => handleCheck(index)}
                 />
                 <span className={isChecked(index)}>{item}</span>
               </>
             )}
-            <button onClick={() => handleEditTodo(index)} className="Button">
+            <button onClick={() => handleEditTodo(index)} className="Button-1">
               Update
             </button>
-            <button onClick={() => handleDeleteTodo(index)} className="Button">
+            <button
+              onClick={() => handleDeleteTodo(index)}
+              className="Button-1"
+            >
               Delete
             </button>
           </li>
