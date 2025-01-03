@@ -1,1 +1,1 @@
-Todo-List using Javascript
+To Do List using Javascript
